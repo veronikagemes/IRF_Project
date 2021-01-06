@@ -41,6 +41,7 @@ namespace IRF_Project
             this.button2 = new System.Windows.Forms.Button();
             this.ulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buszulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.uticelBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ulesBindingSource)).BeginInit();
@@ -131,11 +132,19 @@ namespace IRF_Project
             // 
             this.buszulesBindingSource.DataSource = typeof(IRF_Project.Buszules);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(48, 139);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(26, 22);
+            this.textBox1.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(791, 450);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -166,6 +175,7 @@ namespace IRF_Project
         private System.Windows.Forms.BindingSource ulesBindingSource;
         private System.Windows.Forms.BindingSource datumBindingSource;
         private System.Windows.Forms.BindingSource buszulesBindingSource;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

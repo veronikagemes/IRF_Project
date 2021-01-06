@@ -138,6 +138,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Utaslista.resx">
+      <DependentUpon>Utaslista.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Busz.datasource" />
     <None Include="Properties\DataSources\Buszules.datasource" />

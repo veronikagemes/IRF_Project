@@ -6,6 +6,11 @@ using System.Windows.Forms;
 
 namespace IRF_Project
 {
+    public static class GlobalisValtozok
+    {
+        public static string Idk { get; set; }
+
+    }
     static class Program
     {
 

@@ -12,6 +12,7 @@ namespace IRF_Project
 {
     public partial class Utaslista : Form
     {
+        UtazasokEntities context = new UtazasokEntities();
         public Utaslista()
         {
             InitializeComponent();
