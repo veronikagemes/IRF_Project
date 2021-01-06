@@ -39,6 +39,7 @@ namespace IRF_Project
                 on y.DatumID equals z.DatumID
                 where x.Varos == comboBox1.Text && y.DatumID == 1
                 select new { z.DatumID };
+
             int aa = int.Parse(a.ToString());
             context.Datum.Where(p => p.DatumID == aa).Select(x => x).Load();*/
 

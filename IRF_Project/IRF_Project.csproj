@@ -105,6 +105,7 @@
     <Compile Include="Utaslista.Designer.cs">
       <DependentUpon>Utaslista.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utasok.cs" />
     <Compile Include="Utazas.cs">
       <DependentUpon>UtazasokModel.tt</DependentUpon>
     </Compile>
