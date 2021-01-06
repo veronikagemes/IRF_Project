@@ -31,7 +31,7 @@ namespace IRF_Project
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Utaslista));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Utaslistadgw = new System.Windows.Forms.DataGridView();
             this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -45,41 +45,22 @@ namespace IRF_Project
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.buszulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buszulesIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ulesIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utasIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.foglaltsagDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buszIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buszDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ulesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Utaslistadgw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
             this.bindingNavigator1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.buszulesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // Utaslistadgw
             // 
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.buszulesIDDataGridViewTextBoxColumn,
-            this.ulesIDDataGridViewTextBoxColumn,
-            this.utasIDDataGridViewTextBoxColumn,
-            this.foglaltsagDataGridViewCheckBoxColumn,
-            this.buszIDDataGridViewTextBoxColumn,
-            this.buszDataGridViewTextBoxColumn,
-            this.ulesDataGridViewTextBoxColumn,
-            this.utasDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.buszulesBindingSource;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(995, 533);
-            this.dataGridView1.TabIndex = 0;
+            this.Utaslistadgw.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Utaslistadgw.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Utaslistadgw.Location = new System.Drawing.Point(0, 27);
+            this.Utaslistadgw.Name = "Utaslistadgw";
+            this.Utaslistadgw.RowHeadersWidth = 51;
+            this.Utaslistadgw.RowTemplate.Height = 24;
+            this.Utaslistadgw.Size = new System.Drawing.Size(995, 533);
+            this.Utaslistadgw.TabIndex = 0;
             // 
             // bindingNavigator1
             // 
@@ -199,80 +180,16 @@ namespace IRF_Project
             // 
             this.buszulesBindingSource.DataSource = typeof(IRF_Project.Buszules);
             // 
-            // buszulesIDDataGridViewTextBoxColumn
-            // 
-            this.buszulesIDDataGridViewTextBoxColumn.DataPropertyName = "BuszulesID";
-            this.buszulesIDDataGridViewTextBoxColumn.HeaderText = "BuszulesID";
-            this.buszulesIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.buszulesIDDataGridViewTextBoxColumn.Name = "buszulesIDDataGridViewTextBoxColumn";
-            this.buszulesIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // ulesIDDataGridViewTextBoxColumn
-            // 
-            this.ulesIDDataGridViewTextBoxColumn.DataPropertyName = "UlesID";
-            this.ulesIDDataGridViewTextBoxColumn.HeaderText = "UlesID";
-            this.ulesIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ulesIDDataGridViewTextBoxColumn.Name = "ulesIDDataGridViewTextBoxColumn";
-            this.ulesIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // utasIDDataGridViewTextBoxColumn
-            // 
-            this.utasIDDataGridViewTextBoxColumn.DataPropertyName = "UtasID";
-            this.utasIDDataGridViewTextBoxColumn.HeaderText = "UtasID";
-            this.utasIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.utasIDDataGridViewTextBoxColumn.Name = "utasIDDataGridViewTextBoxColumn";
-            this.utasIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // foglaltsagDataGridViewCheckBoxColumn
-            // 
-            this.foglaltsagDataGridViewCheckBoxColumn.DataPropertyName = "Foglaltsag";
-            this.foglaltsagDataGridViewCheckBoxColumn.HeaderText = "Foglaltsag";
-            this.foglaltsagDataGridViewCheckBoxColumn.MinimumWidth = 6;
-            this.foglaltsagDataGridViewCheckBoxColumn.Name = "foglaltsagDataGridViewCheckBoxColumn";
-            this.foglaltsagDataGridViewCheckBoxColumn.Width = 125;
-            // 
-            // buszIDDataGridViewTextBoxColumn
-            // 
-            this.buszIDDataGridViewTextBoxColumn.DataPropertyName = "BuszID";
-            this.buszIDDataGridViewTextBoxColumn.HeaderText = "BuszID";
-            this.buszIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.buszIDDataGridViewTextBoxColumn.Name = "buszIDDataGridViewTextBoxColumn";
-            this.buszIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // buszDataGridViewTextBoxColumn
-            // 
-            this.buszDataGridViewTextBoxColumn.DataPropertyName = "Busz";
-            this.buszDataGridViewTextBoxColumn.HeaderText = "Busz";
-            this.buszDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.buszDataGridViewTextBoxColumn.Name = "buszDataGridViewTextBoxColumn";
-            this.buszDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // ulesDataGridViewTextBoxColumn
-            // 
-            this.ulesDataGridViewTextBoxColumn.DataPropertyName = "Ules";
-            this.ulesDataGridViewTextBoxColumn.HeaderText = "Ules";
-            this.ulesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.ulesDataGridViewTextBoxColumn.Name = "ulesDataGridViewTextBoxColumn";
-            this.ulesDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // utasDataGridViewTextBoxColumn
-            // 
-            this.utasDataGridViewTextBoxColumn.DataPropertyName = "Utas";
-            this.utasDataGridViewTextBoxColumn.HeaderText = "Utas";
-            this.utasDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.utasDataGridViewTextBoxColumn.Name = "utasDataGridViewTextBoxColumn";
-            this.utasDataGridViewTextBoxColumn.Width = 125;
-            // 
             // Utaslista
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(995, 560);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.Utaslistadgw);
             this.Controls.Add(this.bindingNavigator1);
             this.Name = "Utaslista";
             this.Text = "Utaslista";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Utaslistadgw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
             this.bindingNavigator1.ResumeLayout(false);
             this.bindingNavigator1.PerformLayout();
@@ -284,7 +201,7 @@ namespace IRF_Project
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Utaslistadgw;
         private System.Windows.Forms.BindingNavigator bindingNavigator1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
@@ -297,14 +214,6 @@ namespace IRF_Project
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buszulesIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ulesIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utasIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn foglaltsagDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buszIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buszDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ulesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utasDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource buszulesBindingSource;
     }
 }

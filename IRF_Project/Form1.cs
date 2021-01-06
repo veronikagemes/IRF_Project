@@ -21,6 +21,7 @@ namespace IRF_Project
             Uticelvalasztas();
             Datumvalasztas();
             Buszmegjelenites();
+            
         }
 
         private void Uticelvalasztas() {
@@ -72,12 +73,24 @@ namespace IRF_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //GlobalisValtozok.Idk = textBox1.Text;
             Helyfoglalas hf = new Helyfoglalas();
             hf.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            /*DateTime UtazasDatuma = comboBox2.Text;
+            var s =
+                from x in context.Uticel
+                join y in context.Utazas
+                on x.UticelID equals y.UticelID
+                join z in context.Datum
+                on y.DatumID equals z.DatumID
+                where (x.Varos == comboBox1.Text) && (z.Datum1 == UtazasDatuma)
+                select new { y.UtazasID};
+            GlobalisValtozok.Idk = s;*/
+            GlobalisValtozok.Idk = "1";
             Utaslista ul = new Utaslista();
             ul.Show();
         }
