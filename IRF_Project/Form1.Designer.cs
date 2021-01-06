@@ -38,7 +38,13 @@ namespace IRF_Project
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.ulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.buszulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.datumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uticelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ulesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buszulesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -49,11 +55,14 @@ namespace IRF_Project
             // 
             // comboBox1
             // 
+            this.comboBox1.DataSource = this.uticelBindingSource;
+            this.comboBox1.DisplayMember = "Varos";
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(81, 50);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(202, 24);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.ValueMember = "Varos";
             // 
             // uticelBindingSource
             // 
@@ -61,11 +70,14 @@ namespace IRF_Project
             // 
             // comboBox2
             // 
+            this.comboBox2.DataSource = this.datumBindingSource;
+            this.comboBox2.DisplayMember = "Datum1";
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(81, 80);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(202, 24);
             this.comboBox2.TabIndex = 2;
+            this.comboBox2.ValueMember = "Datum1";
             // 
             // label1
             // 
@@ -105,6 +117,18 @@ namespace IRF_Project
             this.button2.Text = "Utaslista letöltése";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // ulesBindingSource
+            // 
+            this.ulesBindingSource.DataSource = typeof(IRF_Project.Ules);
+            // 
+            // buszulesBindingSource
+            // 
+            this.buszulesBindingSource.DataSource = typeof(IRF_Project.Buszules);
+            // 
+            // datumBindingSource
+            // 
+            this.datumBindingSource.DataSource = typeof(IRF_Project.Datum);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -119,6 +143,9 @@ namespace IRF_Project
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.uticelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ulesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buszulesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,6 +161,9 @@ namespace IRF_Project
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource uticelBindingSource;
+        private System.Windows.Forms.BindingSource ulesBindingSource;
+        private System.Windows.Forms.BindingSource datumBindingSource;
+        private System.Windows.Forms.BindingSource buszulesBindingSource;
     }
 }
 
