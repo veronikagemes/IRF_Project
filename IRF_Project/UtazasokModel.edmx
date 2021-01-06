@@ -1,0 +1,439 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="UtazasokModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Busz">
+          <Key>
+            <PropertyRef Name="BuszID" />
+          </Key>
+          <Property Name="BuszID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Busznev" Type="nvarchar" MaxLength="50" />
+          <Property Name="BuszulesID" Type="int" />
+        </EntityType>
+        <EntityType Name="Buszules">
+          <Key>
+            <PropertyRef Name="BuszulesID" />
+          </Key>
+          <Property Name="BuszulesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UlesID" Type="int" Nullable="false" />
+          <Property Name="UtasID" Type="int" />
+          <Property Name="Foglaltsag" Type="bit" Nullable="false" />
+          <Property Name="BuszID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Datum">
+          <Key>
+            <PropertyRef Name="DatumID" />
+          </Key>
+          <Property Name="DatumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Datum" Type="datetime2" Precision="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ules">
+          <Key>
+            <PropertyRef Name="UlesID" />
+          </Key>
+          <Property Name="UlesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ulesszam" Type="tinyint" Nullable="false" />
+          <Property Name="Pozicio" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utas">
+          <Key>
+            <PropertyRef Name="UtasID" />
+          </Key>
+          <Property Name="UtasID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nev" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Utazas">
+          <Key>
+            <PropertyRef Name="UtazasID" />
+          </Key>
+          <Property Name="UtazasID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UticelID" Type="int" Nullable="false" />
+          <Property Name="DatumID" Type="int" Nullable="false" />
+          <Property Name="BuszID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uticel">
+          <Key>
+            <PropertyRef Name="UticelID" />
+          </Key>
+          <Property Name="UticelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Varos" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Busz__BuszulesID__48CFD27E">
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="0..1" />
+          <End Role="Busz" Type="Self.Busz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buszules">
+              <PropertyRef Name="BuszulesID" />
+            </Principal>
+            <Dependent Role="Busz">
+              <PropertyRef Name="BuszulesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buszules__UlesID__2C3393D0">
+          <End Role="Ules" Type="Self.Ules" Multiplicity="1" />
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ules">
+              <PropertyRef Name="UlesID" />
+            </Principal>
+            <Dependent Role="Buszules">
+              <PropertyRef Name="UlesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buszules__UtasID__2F10007B">
+          <End Role="Utas" Type="Self.Utas" Multiplicity="0..1" />
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utas">
+              <PropertyRef Name="UtasID" />
+            </Principal>
+            <Dependent Role="Buszules">
+              <PropertyRef Name="UtasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__BuszID__36B12243">
+          <End Role="Busz" Type="Self.Busz" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Busz">
+              <PropertyRef Name="BuszID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="BuszID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__DatumID__35BCFE0A">
+          <End Role="Datum" Type="Self.Datum" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Datum">
+              <PropertyRef Name="DatumID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="DatumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__UticelID__34C8D9D1">
+          <End Role="Uticel" Type="Self.Uticel" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uticel">
+              <PropertyRef Name="UticelID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="UticelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UtazasokModelStoreContainer">
+          <EntitySet Name="Busz" EntityType="Self.Busz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Buszules" EntityType="Self.Buszules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Datum" EntityType="Self.Datum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ules" EntityType="Self.Ules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utas" EntityType="Self.Utas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utazas" EntityType="Self.Utazas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uticel" EntityType="Self.Uticel" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Busz__BuszulesID__48CFD27E" Association="Self.FK__Busz__BuszulesID__48CFD27E">
+            <End Role="Buszules" EntitySet="Buszules" />
+            <End Role="Busz" EntitySet="Busz" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buszules__UlesID__2C3393D0" Association="Self.FK__Buszules__UlesID__2C3393D0">
+            <End Role="Ules" EntitySet="Ules" />
+            <End Role="Buszules" EntitySet="Buszules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buszules__UtasID__2F10007B" Association="Self.FK__Buszules__UtasID__2F10007B">
+            <End Role="Utas" EntitySet="Utas" />
+            <End Role="Buszules" EntitySet="Buszules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__BuszID__36B12243" Association="Self.FK__Utazas__BuszID__36B12243">
+            <End Role="Busz" EntitySet="Busz" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__DatumID__35BCFE0A" Association="Self.FK__Utazas__DatumID__35BCFE0A">
+            <End Role="Datum" EntitySet="Datum" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__UticelID__34C8D9D1" Association="Self.FK__Utazas__UticelID__34C8D9D1">
+            <End Role="Uticel" EntitySet="Uticel" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UtazasokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Busz">
+          <Key>
+            <PropertyRef Name="BuszID" />
+          </Key>
+          <Property Name="BuszID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Busznev" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BuszulesID" Type="Int32" />
+          <NavigationProperty Name="Buszules" Relationship="Self.FK__Busz__BuszulesID__48CFD27E" FromRole="Busz" ToRole="Buszules" />
+          <NavigationProperty Name="Utazas" Relationship="Self.FK__Utazas__BuszID__36B12243" FromRole="Busz" ToRole="Utazas" />
+        </EntityType>
+        <EntityType Name="Buszules">
+          <Key>
+            <PropertyRef Name="BuszulesID" />
+          </Key>
+          <Property Name="BuszulesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UlesID" Type="Int32" Nullable="false" />
+          <Property Name="UtasID" Type="Int32" />
+          <Property Name="Foglaltsag" Type="Boolean" Nullable="false" />
+          <Property Name="BuszID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Busz" Relationship="Self.FK__Busz__BuszulesID__48CFD27E" FromRole="Buszules" ToRole="Busz" />
+          <NavigationProperty Name="Ules" Relationship="Self.FK__Buszules__UlesID__2C3393D0" FromRole="Buszules" ToRole="Ules" />
+          <NavigationProperty Name="Utas" Relationship="Self.FK__Buszules__UtasID__2F10007B" FromRole="Buszules" ToRole="Utas" />
+        </EntityType>
+        <EntityType Name="Datum">
+          <Key>
+            <PropertyRef Name="DatumID" />
+          </Key>
+          <Property Name="DatumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Datum1" Type="DateTime" Nullable="false" Precision="7" />
+          <NavigationProperty Name="Utazas" Relationship="Self.FK__Utazas__DatumID__35BCFE0A" FromRole="Datum" ToRole="Utazas" />
+        </EntityType>
+        <EntityType Name="Ules">
+          <Key>
+            <PropertyRef Name="UlesID" />
+          </Key>
+          <Property Name="UlesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ulesszam" Type="Byte" Nullable="false" />
+          <Property Name="Pozicio" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Buszules" Relationship="Self.FK__Buszules__UlesID__2C3393D0" FromRole="Ules" ToRole="Buszules" />
+        </EntityType>
+        <EntityType Name="Utas">
+          <Key>
+            <PropertyRef Name="UtasID" />
+          </Key>
+          <Property Name="UtasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nev" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Buszules" Relationship="Self.FK__Buszules__UtasID__2F10007B" FromRole="Utas" ToRole="Buszules" />
+        </EntityType>
+        <EntityType Name="Utazas">
+          <Key>
+            <PropertyRef Name="UtazasID" />
+          </Key>
+          <Property Name="UtazasID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UticelID" Type="Int32" Nullable="false" />
+          <Property Name="DatumID" Type="Int32" Nullable="false" />
+          <Property Name="BuszID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Busz" Relationship="Self.FK__Utazas__BuszID__36B12243" FromRole="Utazas" ToRole="Busz" />
+          <NavigationProperty Name="Datum" Relationship="Self.FK__Utazas__DatumID__35BCFE0A" FromRole="Utazas" ToRole="Datum" />
+          <NavigationProperty Name="Uticel" Relationship="Self.FK__Utazas__UticelID__34C8D9D1" FromRole="Utazas" ToRole="Uticel" />
+        </EntityType>
+        <EntityType Name="Uticel">
+          <Key>
+            <PropertyRef Name="UticelID" />
+          </Key>
+          <Property Name="UticelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Varos" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Utazas" Relationship="Self.FK__Utazas__UticelID__34C8D9D1" FromRole="Uticel" ToRole="Utazas" />
+        </EntityType>
+        <Association Name="FK__Busz__BuszulesID__48CFD27E">
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="0..1" />
+          <End Role="Busz" Type="Self.Busz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buszules">
+              <PropertyRef Name="BuszulesID" />
+            </Principal>
+            <Dependent Role="Busz">
+              <PropertyRef Name="BuszulesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__BuszID__36B12243">
+          <End Role="Busz" Type="Self.Busz" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Busz">
+              <PropertyRef Name="BuszID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="BuszID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buszules__UlesID__2C3393D0">
+          <End Role="Ules" Type="Self.Ules" Multiplicity="1" />
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ules">
+              <PropertyRef Name="UlesID" />
+            </Principal>
+            <Dependent Role="Buszules">
+              <PropertyRef Name="UlesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Buszules__UtasID__2F10007B">
+          <End Role="Utas" Type="Self.Utas" Multiplicity="0..1" />
+          <End Role="Buszules" Type="Self.Buszules" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utas">
+              <PropertyRef Name="UtasID" />
+            </Principal>
+            <Dependent Role="Buszules">
+              <PropertyRef Name="UtasID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__DatumID__35BCFE0A">
+          <End Role="Datum" Type="Self.Datum" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Datum">
+              <PropertyRef Name="DatumID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="DatumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utazas__UticelID__34C8D9D1">
+          <End Role="Uticel" Type="Self.Uticel" Multiplicity="1" />
+          <End Role="Utazas" Type="Self.Utazas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uticel">
+              <PropertyRef Name="UticelID" />
+            </Principal>
+            <Dependent Role="Utazas">
+              <PropertyRef Name="UticelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UtazasokEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Busz" EntityType="Self.Busz" />
+          <EntitySet Name="Buszules" EntityType="Self.Buszules" />
+          <EntitySet Name="Datum" EntityType="Self.Datum" />
+          <EntitySet Name="Ules" EntityType="Self.Ules" />
+          <EntitySet Name="Utas" EntityType="Self.Utas" />
+          <EntitySet Name="Utazas" EntityType="Self.Utazas" />
+          <EntitySet Name="Uticel" EntityType="Self.Uticel" />
+          <AssociationSet Name="FK__Busz__BuszulesID__48CFD27E" Association="Self.FK__Busz__BuszulesID__48CFD27E">
+            <End Role="Buszules" EntitySet="Buszules" />
+            <End Role="Busz" EntitySet="Busz" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__BuszID__36B12243" Association="Self.FK__Utazas__BuszID__36B12243">
+            <End Role="Busz" EntitySet="Busz" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buszules__UlesID__2C3393D0" Association="Self.FK__Buszules__UlesID__2C3393D0">
+            <End Role="Ules" EntitySet="Ules" />
+            <End Role="Buszules" EntitySet="Buszules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Buszules__UtasID__2F10007B" Association="Self.FK__Buszules__UtasID__2F10007B">
+            <End Role="Utas" EntitySet="Utas" />
+            <End Role="Buszules" EntitySet="Buszules" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__DatumID__35BCFE0A" Association="Self.FK__Utazas__DatumID__35BCFE0A">
+            <End Role="Datum" EntitySet="Datum" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utazas__UticelID__34C8D9D1" Association="Self.FK__Utazas__UticelID__34C8D9D1">
+            <End Role="Uticel" EntitySet="Uticel" />
+            <End Role="Utazas" EntitySet="Utazas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UtazasokModelStoreContainer" CdmEntityContainer="UtazasokEntities">
+          <EntitySetMapping Name="Busz">
+            <EntityTypeMapping TypeName="UtazasokModel.Busz">
+              <MappingFragment StoreEntitySet="Busz">
+                <ScalarProperty Name="BuszID" ColumnName="BuszID" />
+                <ScalarProperty Name="Busznev" ColumnName="Busznev" />
+                <ScalarProperty Name="BuszulesID" ColumnName="BuszulesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buszules">
+            <EntityTypeMapping TypeName="UtazasokModel.Buszules">
+              <MappingFragment StoreEntitySet="Buszules">
+                <ScalarProperty Name="BuszulesID" ColumnName="BuszulesID" />
+                <ScalarProperty Name="UlesID" ColumnName="UlesID" />
+                <ScalarProperty Name="UtasID" ColumnName="UtasID" />
+                <ScalarProperty Name="Foglaltsag" ColumnName="Foglaltsag" />
+                <ScalarProperty Name="BuszID" ColumnName="BuszID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Datum">
+            <EntityTypeMapping TypeName="UtazasokModel.Datum">
+              <MappingFragment StoreEntitySet="Datum">
+                <ScalarProperty Name="DatumID" ColumnName="DatumID" />
+                <ScalarProperty Name="Datum1" ColumnName="Datum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ules">
+            <EntityTypeMapping TypeName="UtazasokModel.Ules">
+              <MappingFragment StoreEntitySet="Ules">
+                <ScalarProperty Name="UlesID" ColumnName="UlesID" />
+                <ScalarProperty Name="Ulesszam" ColumnName="Ulesszam" />
+                <ScalarProperty Name="Pozicio" ColumnName="Pozicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utas">
+            <EntityTypeMapping TypeName="UtazasokModel.Utas">
+              <MappingFragment StoreEntitySet="Utas">
+                <ScalarProperty Name="UtasID" ColumnName="UtasID" />
+                <ScalarProperty Name="Nev" ColumnName="Nev" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utazas">
+            <EntityTypeMapping TypeName="UtazasokModel.Utazas">
+              <MappingFragment StoreEntitySet="Utazas">
+                <ScalarProperty Name="UtazasID" ColumnName="UtazasID" />
+                <ScalarProperty Name="UticelID" ColumnName="UticelID" />
+                <ScalarProperty Name="DatumID" ColumnName="DatumID" />
+                <ScalarProperty Name="BuszID" ColumnName="BuszID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uticel">
+            <EntityTypeMapping TypeName="UtazasokModel.Uticel">
+              <MappingFragment StoreEntitySet="Uticel">
+                <ScalarProperty Name="UticelID" ColumnName="UticelID" />
+                <ScalarProperty Name="Varos" ColumnName="Varos" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
