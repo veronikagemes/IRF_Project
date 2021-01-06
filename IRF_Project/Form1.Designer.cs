@@ -34,17 +34,17 @@ namespace IRF_Project
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.uticelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.datumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.ulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buszulesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.datumBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.uticelBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ulesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buszulesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -79,6 +79,10 @@ namespace IRF_Project
             this.comboBox2.TabIndex = 2;
             this.comboBox2.ValueMember = "Datum1";
             // 
+            // datumBindingSource
+            // 
+            this.datumBindingSource.DataSource = typeof(IRF_Project.Datum);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -107,6 +111,7 @@ namespace IRF_Project
             this.button1.TabIndex = 5;
             this.button1.Text = "Helyfoglalás";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -116,6 +121,7 @@ namespace IRF_Project
             this.button2.TabIndex = 6;
             this.button2.Text = "Utaslista letöltése";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // ulesBindingSource
             // 
@@ -124,10 +130,6 @@ namespace IRF_Project
             // buszulesBindingSource
             // 
             this.buszulesBindingSource.DataSource = typeof(IRF_Project.Buszules);
-            // 
-            // datumBindingSource
-            // 
-            this.datumBindingSource.DataSource = typeof(IRF_Project.Datum);
             // 
             // Form1
             // 
@@ -143,9 +145,9 @@ namespace IRF_Project
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.uticelBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ulesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buszulesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.datumBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

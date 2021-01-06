@@ -85,6 +85,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helyfoglalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helyfoglalas.Designer.cs">
+      <DependentUpon>Helyfoglalas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ules.cs">
@@ -92,6 +98,12 @@
     </Compile>
     <Compile Include="Utas.cs">
       <DependentUpon>UtazasokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utaslista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Utaslista.Designer.cs">
+      <DependentUpon>Utaslista.cs</DependentUpon>
     </Compile>
     <Compile Include="Utazas.cs">
       <DependentUpon>UtazasokModel.tt</DependentUpon>

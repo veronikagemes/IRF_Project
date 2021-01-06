@@ -25,10 +25,6 @@ namespace IRF_Project
         private void Uticelvalasztas() {
             context.Uticel.Load();
             uticelBindingSource.DataSource = context.Uticel.Local;
-            /*var a =
-                from x in context.Uticel
-                where x.Varos == comboBox1.Text
-                select new { x.UticelID};*/
         }
 
         private void Datumvalasztas() {
@@ -44,6 +40,18 @@ namespace IRF_Project
             context.Datum.Load();
            
             datumBindingSource.DataSource = context.Datum.Local;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Helyfoglalas hf = new Helyfoglalas();
+            hf.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Utaslista ul = new Utaslista();
+            ul.Show();
         }
     }
 }
