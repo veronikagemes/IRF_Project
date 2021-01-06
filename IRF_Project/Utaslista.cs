@@ -66,7 +66,6 @@ namespace IRF_Project
 
             using (StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8))
             {
-                // Végigmegyünk a hallgató lista elemein
                 foreach (var s in eredmeny)
                 {
                     sw.Write(s.Ulesszam.ToString());

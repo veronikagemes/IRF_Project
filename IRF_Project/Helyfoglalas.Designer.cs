@@ -29,10 +29,17 @@ namespace IRF_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // Helyfoglalas
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 738);
+            this.Name = "Helyfoglalas";
             this.Text = "Helyfoglalas";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
