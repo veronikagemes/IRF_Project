@@ -21,7 +21,6 @@ namespace IRF_Project
             Uticelvalasztas();
             Datumvalasztas();
             Buszmegjelenites();
-            
         }
 
         private void Uticelvalasztas() {
@@ -59,22 +58,28 @@ namespace IRF_Project
             /*string iString = comboBox2.Text;
             DateTime oDate = DateTime.ParseExact(iString, "yyyy/MM/dd HH:mm", null);
             MessageBox.Show(oDate.ToString());*/
+            //var datum = comboBox2.Text.Split('.')[0];
+            //MessageBox.Show(datum);
+            //DateTime datum = new DateTime(2011, 6, 10);
 
-            /*textBox1.Text =
-                from x in context.Uticel
-                join y in context.Utazas
-                on x.UticelID equals y.UticelID
-                join z in context.Datum
-                on y.DatumID equals z.DatumID
-                where (x.Varos == comboBox1.Text) && (z.Datum1 == dt)
-                join w in context.Busz
+            
+            /*var query = from x in context.Uticel
+                        join y in context.Utazas
+                        on x.UticelID equals y.UticelID
+                        join z in context.Datum
+                        on y.DatumID equals z.DatumID
+                        join w in context.Busz
+                        on y.BuszID equals w.BuszID
+                        where (x.Varos == comboBox1.Text) && (z.DatumID.ToString() == comboBox2.ValueMember)
+                        select new { w.BuszID };
 
-                select new { w. };*/
+            MessageBox.Show(query.ToList().First().BuszID.ToString());*/
+            //textBox1.Text = query.Busznev;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //GlobalisValtozok.Idk = textBox1.Text;
+            GlobalisValtozok.Idk = textBox1.Text;
             Helyfoglalas hf = new Helyfoglalas();
             hf.Show();
         }

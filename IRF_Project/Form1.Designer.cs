@@ -78,7 +78,7 @@ namespace IRF_Project
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(202, 24);
             this.comboBox2.TabIndex = 2;
-            this.comboBox2.ValueMember = "Datum1";
+            this.comboBox2.ValueMember = "DatumID";
             // 
             // datumBindingSource
             // 

@@ -59,11 +59,32 @@ namespace IRF_Project
                 for (int col = 1; col < 5; col++)
                 {
                     Ulesek ules = new Ulesek();
-                    ules.Left = col * ules.Width + (int)(Math.Floor((double)(col / 4)));
+                    if (col < 3)
+                    {
+                        ules.Left = col * ules.Width + (int)(Math.Floor((double)(col / 4)));
+                    }
+                    else if (col > 2)
+                    {
+                        ules.Left = (col + 1) * ules.Width + (int)(Math.Floor((double)(col / 4)));
+                    }
                     ules.Top = row * ules.Height + (int)(Math.Floor((double)(row / 4)));
-                    this.Controls.Add(ules);
+                    if (!((row == 1 && col == 3)
+                        || (row == 1 && col == 4)
+                        || (row == 6 && col == 3)
+                        || (row == 6 && col == 4)
+                        || (row == 7 && col == 3)
+                        || (row == 7 && col == 4)
+                        ))
+                    {
+                        this.Controls.Add(ules);
+                    }
                 }
             }
+            int sor = 13;
+            Ulesek extraules = new Ulesek();
+            extraules.Left = 3 * extraules.Width + (int)(Math.Floor((double)(3 / 4)));
+            extraules.Top = sor * extraules.Height + (int)(Math.Floor((double)(sor / 4)));
+            this.Controls.Add(extraules);
         }
     }
 }
