@@ -36,22 +36,31 @@ namespace IRF_Project
                            where x.BuszID == azon
                            select new { z.Ulesszam, z.Pozicio, y.Foglaltsag };
 
-             _foglalashozadatok = (List<FoglalashozAdatok>)eredmeny;
-
+            //_foglalashozadatok = (List<FoglalashozAdatok>)eredmeny;
+            using (StreamWriter sw = new StreamWriter("Textfile1.txt", false, Encoding.UTF8))
+            {
+                foreach (var s in eredmeny)
+                {
+                    sw.Write(s.Ulesszam.ToString());
+                    sw.Write(";");
+                    sw.Write(s.Pozicio);
+                    sw.Write(";");
+                    sw.Write(s.Foglaltsag);
+                    sw.WriteLine();
+                }
+            }
 
         }
 
         private void Ulesrajzolo() 
         {
-            int lineWidth = 5;
-
-            for (int row = 1; row < 4; row++)
+            for (int row = 1; row < 14; row++)
             {
-                for (int col = 1; col < 13; col++)
+                for (int col = 1; col < 5; col++)
                 {
                     Ulesek ules = new Ulesek();
-                    ules.Left = col * ules.Width + (int)(Math.Floor((double)(col / 4))) * lineWidth;
-                    ules.Top = row * ules.Height + (int)(Math.Floor((double)(row / 4))) * lineWidth;
+                    ules.Left = col * ules.Width + (int)(Math.Floor((double)(col / 4)));
+                    ules.Top = row * ules.Height + (int)(Math.Floor((double)(row / 4)));
                     this.Controls.Add(ules);
                 }
             }

@@ -28,8 +28,8 @@ namespace IRF_Project
 
         public Ulesek()
         {
-            Height = 30;
-            Width = Height;
+            Height = 25;
+            Width = 60;
             BackColor = Color.White;
             Foglaltsag = 0;
             MouseClick += Ulesek_MouseClick;
